@@ -1,0 +1,116 @@
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+           
+            <form (ngSubmit)="processForm()">
+                <fieldset>
+                    <legend class="text-center">Edit Form.</legend>
+
+                    <div class="form-group">
+                        <label for="UserName"><span class="req">* </span> UserName: <small>This will be your login user
+                                name</small> </label>
+                        <input required type="text" readonly [(ngModel)]="user.user_name" name="UserName" id="UserName"
+                            class="form-control phone" maxlength="28" placeholder="Enter your UserName..." />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Passowrd"><span class="req">* </span> Password: <small>This will be your login password
+                        </small> </label>
+                        <input required type="text" [(ngModel)]="user.user_password" name="Passowrd" id="Passowrd"
+                            class="form-control phone" maxlength="28" placeholder="Enter your Passowrd..." />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Firstname"><span class="req">* </span> FirstName: </label>
+                        <input class="form-control" type="text" [(ngModel)]="user.user_details.first_name" name="Firstname" id="Firstname" required
+                            placeholder="Enter first name" />
+                        <div id="errFirst"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Lastname"><span class="req">* </span> LastName : </label>
+                        <input class="form-control" type="text" [(ngModel)]="user.user_details.last_name" name="Lastname" id="Lastname"
+                            placeholder="Enter last name" required />
+                        <div id="errLast"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender"><span class="req">* </span> Gender: </label>
+                        <input class="form-control" required type="text" readonly [(ngModel)]="user.user_details.gender" name="gender"
+                            id="gender" placeholder="Enter gender" />
+                        <div class="status" id="status"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email"><span class="req">* </span> Email: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="user.user_details.email" name="Email"
+                            id="Email" placeholder="Enter email" />
+                        <div class="status" id="status"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ssc"><span class="req">* </span> SSC Board Name: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="user.user_education.ssc_board_name" name="ssc"
+                            id="ssc" placeholder="Enter ssc board name" />
+                        <div class="status" id="status"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sscp"><span class="req">* </span> SSC Percentage: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="user.user_education.ssc_percentage" name="sscp"
+                            id="sscp" placeholder="Enter ssc percentage" />
+                        <div class="status" id="status"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hsc"><span class="req">* </span> HSC Board Name: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="user.user_education.hsc_board_name" name="hsc"
+                            id="hsc" placeholder="Enter hsc board name" />
+                        <div class="status" id="status"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hscp"><span class="req">* </span> HSC Percentage: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="user.user_education.hsc_percentage" name="hscp"
+                            id="hscp" placeholder="Enter hsc percentage" />
+                        <div class="status" id="status"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="university"><span class="req">* </span> University Name: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="user.user_education.university_name" name="university"
+                            id="university" placeholder="Enter university" />
+                        <div class="status" id="status"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cgpa"><span class="req">* </span> CGPA: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="user.user_education.cgpa" name="cgpa"
+                            id="cgpa" placeholder="Enter cgpa" />
+                        <div class="status" id="status"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="btn btn-success" type="submit" name="submit_reg" value="Save" >
+                    </div>
+                </fieldset>
+            </form>
+            
+            <!-- ends register form -->
+            <!-- second for to fiter user-->
+        </div><!-- ends col-6 -->
+
+    </div>
+</div>
+
+
+
+
+

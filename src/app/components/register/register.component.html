@@ -1,0 +1,242 @@
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<div class="container">
+    <h2>User Form</h2>
+    <form #form="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" name="name" class="form-control" [(ngModel)]="user.user_name" 
+         required #nameField="ngModel" 
+         (blur)="onBlur(nameField)"
+         [class.field-error]="form.submitted && nameField.invalid" />
+      </div>
+      <div [hidden]="!form.submitted || nameField.valid" class="alert alert-danger">
+        Name is Mandatory
+      </div>    
+      
+      <p>Gender</p>
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="interfaceStyle" id="lightInterface" value="light"
+            [(ngModel)]="user.user_details.gender">
+          <label class="form-check-label" for="lightInterface">
+            Male
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="interfaceStyle" id="mediumInterface" value="medium"
+            [(ngModel)]="user.user_details.gender">
+          <label class="form-check-label" for="mediumInterface">
+            Female
+          </label>
+        </div>
+        
+      </div> 
+      <!-- <div class="form-group">
+        <label for="subscriptionType">Subscription Type</label>
+        <select class="form-control" id="subscriptionType" name="subscriptionType"
+          [(ngModel)]="userSettings.subscriptionType">
+          <option>Monthly</option>
+          <option>Annual</option>
+          <option>Lifetime</option>
+        </select>
+      </div> -->
+      
+      <button class="btn btn-primary">Send</button>
+    </form>
+  </div>
+  <!-- <h3>{{userSettings | json}}</h3> -->
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+           
+            <form>
+                <fieldset>
+                    <legend class="text-center">Valid information is required to register. <span class="req"><small>
+                                required *</small></span></legend>
+
+                    <div class="form-group">
+                        <label for="UserName"><span class="req">* </span> UserName: <small>This will be your login user
+                                name</small> </label>
+                        <input required type="text" [(ngModel)]="user.user_name" name="UserName" id="UserName"
+                            class="form-control phone" maxlength="28" placeholder="Enter your UserName..." />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Passowrd"><span class="req">* </span> Password: <small>This will be your login password
+                        </small> </label>
+                        <input required type="password" [(ngModel)]="user.user_password" name="Passowrd" id="Passowrd"
+                            class="form-control phone" maxlength="28" placeholder="Enter your Passowrd..." />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Firstname"><span class="req">* </span> FirstName: </label>
+                        <input class="form-control" type="text" [(ngModel)]="user.user_details.first_name" name="Firstname" id="Firstname" required
+                            placeholder="Enter first name" />
+                        <div id="errFirst"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Lastname"><span class="req">* </span> LastName : </label>
+                        <input class="form-control" type="text" [(ngModel)]="user.user_details.last_name" name="Lastname" id="Lastname"
+                            placeholder="Enter last name" required />
+                        <div id="errLast"></div>
+                    </div>
+                    <label for="gender"><span class="req">* </span> Gender: </label>
+
+                    <div class="form-check">
+                        <!-- <label for="gender"><span class="req">* </span> Gender: </label> -->
+                        <input class="form-check-input" type="radio" [(ngModel)]="user.user_details.gender" name="exampleRadios" id="exampleRadios1" value="Male" checked>
+                        <label class="form-check-label" for="exampleRadios1">
+                          Male
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" [(ngModel)]="user.user_details.gender" name="exampleRadios" id="exampleRadios2" value="Female">
+                        <label class="form-check-label" for="exampleRadios2">
+                          Female
+                        </label>
+                      </div>
+
+<!-- 
+
+
+
+
+                    <div class="form-group">
+                        <label for="gender"><span class="req">* </span> Gender: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="user.user_details.gender" name="gender"
+                            id="gender" placeholder="Enter gender" />
+                        <div class="status" id="status"></div>
+                    </div> -->
+
+                    <div class="form-group">
+                        <label for="email"><span class="req">* </span> Email: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="user.user_details.email" name="Email"
+                            id="Email" placeholder="Enter email" />
+                        <div class="status" id="status"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ssc"><span class="req">* </span> SSC Board Name: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="user.user_education.ssc_board_name" name="ssc"
+                            id="ssc" placeholder="Enter ssc board name" />
+                        <div class="status" id="status"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sscp"><span class="req">* </span> SSC Percentage: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="user.user_education.ssc_percentage" name="sscp"
+                            id="sscp" placeholder="Enter ssc percentage" />
+                        <div class="status" id="status"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hsc"><span class="req">* </span> HSC Board Name: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="user.user_education.hsc_board_name" name="hsc"
+                            id="hsc" placeholder="Enter hsc board name" />
+                        <div class="status" id="status"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hscp"><span class="req">* </span> HSC Percentage: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="user.user_education.hsc_percentage" name="hscp"
+                            id="hscp" placeholder="Enter hsc percentage" />
+                        <div class="status" id="status"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="university"><span class="req">* </span> University Name: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="user.user_education.university_name" name="university"
+                            id="university" placeholder="Enter university" />
+                        <div class="status" id="status"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cgpa"><span class="req">* </span> CGPA: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="user.user_education.cgpa" name="cgpa"
+                            id="cgpa" placeholder="Enter cgpa" />
+                        <div class="status" id="status"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cname"><span class="req">* </span> Company Name: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="user.user_employment[0].company_name" name="cname"
+                            id="cname" placeholder="Enter company name" />
+                        <div class="status" id="status"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="sdate"><span class="req">* </span> Start Date: </label>
+                        <input class="form-control" required type="date" [(ngModel)]="user.user_employment[0].start_date" name="sdate"
+                            id="sdate" placeholder="Enter Start Date" />
+                        <div class="status" id="status"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="edate"><span class="req">* </span> End Date: </label>
+                        <input class="form-control" required type="date" [(ngModel)]="user.user_employment[0].end_date" name="edate"
+                            id="edate" placeholder="Enter End date" />
+                        <div class="status" id="status"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tech"><span class="req">* </span> Technology: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="user.user_employment[0].technology" name="tech"
+                            id="tech" placeholder="Enter Technology" />
+                        <div class="status" id="status"></div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="cname1"><span class="req">* </span> Company Name: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="user.user_employment[1].company_name" name="cname1"
+                            id="cname1" placeholder="Enter company name" />
+                        <div class="status" id="status"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="sdate1"><span class="req">* </span> Start Date: </label>
+                        <input class="form-control" required type="date" [(ngModel)]="user.user_employment[1].start_date" name="sdate1"
+                            id="sdate1" placeholder="Enter Start Date" />
+                        <div class="status" id="status"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="edate1"><span class="req">* </span> End Date: </label>
+                        <input class="form-control" required type="date" [(ngModel)]="user.user_employment[1].end_date" name="edate1"
+                            id="edate1" placeholder="Enter End date" />
+                        <div class="status" id="status"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tech1"><span class="req">* </span> Technology: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="user.user_employment[1].technology" name="tech1"
+                            id="tech1" placeholder="Enter Technology" />
+                        <div class="status" id="status"></div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+                    <div class="form-group">
+                        <input class="btn btn-success" type="submit" name="submit_reg" value="Register" (click)="registerNow()">
+                    </div>
+                </fieldset>
+            </form>
+            
+            <!-- ends register form -->
+            <!-- second for to fiter user-->
+        </div><!-- ends col-6 -->
+
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,74 @@
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>Log in</mat-card-title>
+      </mat-card-header>
+  
+      <form class="example-form">
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Username">
+          </mat-form-field>
+  
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Password">
+          </mat-form-field>
+        </mat-card-content>
+        <button mat-stroked-button color="accent" class="btn-block">Log in</button>
+      </form>
+    </mat-card>
+  
+  </div>
+ -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+           
+            <form (ngSubmit)="login()">
+                <fieldset>
+                    <legend class="text-center">Valid information is required Login. 
+                                
+                    </legend>
+
+                    <div class="form-group">
+                        <label for="UserName"><span class="req">* </span> UserName: <small>This will be your login user
+                                name</small> </label>
+                        <input required type="text"  name="UserName" id="UserName"
+                            class="form-control phone" maxlength="28" placeholder="Enter your UserName..." />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Passowrd"><span class="req">* </span> Password: <small>This will be your login password
+                        </small> </label>
+                        <input required  type="password"  name="Passowrd" id="Passowrd"
+                            class="form-control phone" maxlength="28" placeholder="Enter your Passowrd..." />
+                    </div>
+
+                    
+
+                    <div class="form-group">
+                        <input class="btn btn-success" type="submit" name="submit_reg" value="Login" >
+                    </div>
+                </fieldset>
+            </form>
+            
+            <!-- ends register form -->
+            <!-- second for to fiter user-->
+        </div><!-- ends col-6 -->
+
+    </div>
+</div>
+
+
+
+
+
+
